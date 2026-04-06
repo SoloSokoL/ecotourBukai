@@ -5,6 +5,11 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	}
+img {
+max-width: 100%; /* Картинка ніколи не буде ширшою за свій контейнер */
+height: auto; /* Пропорції (ширина/висота) не спотворяться */
+display: block;
 }
 
 body {
@@ -35,10 +40,12 @@ body {
 }
 
 .hero-section {
-    background-color: #2ecc71; /* Яскраво-зелений фон банера */
-    color: white;
-    text-align: center;
-    padding: 100px 20px;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/hero.jpg');
+background-size: cover; /* Розтягує фото, щоб воно покрило весь блок без порожнин */
+background-position: center; /* Центрує найголовнішу частину фотографії */
+color: white;
+text-align: center;
+padding: 120px 20px;
 }
 
 .hero-section h1 {
@@ -99,4 +106,36 @@ body {
 .main-nav a {
     margin-left: 15px;
 }
+}
+popular-tours {
+padding: 50px 20px;
+text-align: center;
+}
+.popular-tours h2 {
+margin-bottom: 30px;
+font-size: 32px;
+}
+.tours-grid {
+display: flex; /* Вмикаємо магію */
+justify-content: center; /* Центруємо всі картки */
+gap: 30px; /* Відстань між картками */
+flex-wrap: wrap; /* Дозволяє карткам перенестися на новий рядок, якщо екран замалий */
+}
+.tour-card {
+background-color: white;
+border-radius: 10px;
+overflow: hidden; /* Обрізає кути картинки, щоб вони не вилазили за заокруглені кути картки */
+box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+width: 300px;
+}
+.tour-card h3 {
+padding: 15px;
+}
+.tour-card img {
+filter: grayscale(100%); /* Робить фото чорно-білим */
+transition: all 0.5s ease; /* Плавний перехід довжиною півсекунди */
+}
+.tour-card:hover img {
+filter: grayscale(0%); /* Повертаємо колір */
+transform: scale(1.1); /* Збільшуємо картинку на 10% */
 }
